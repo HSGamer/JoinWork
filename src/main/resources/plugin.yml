@@ -1,0 +1,6 @@
+name: JoinWork
+version: ${project.version}
+main: me.hsgamer.joinwork.JoinWork
+api-version: 1.16
+authors: [HSGamer]
+description: Join Spawn and Join Items
