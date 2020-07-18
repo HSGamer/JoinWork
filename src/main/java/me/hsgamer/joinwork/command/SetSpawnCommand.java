@@ -4,7 +4,6 @@ import static me.hsgamer.joinwork.JoinWork.getInstance;
 
 import me.hsgamer.hscore.utils.CommonUtils;
 import me.hsgamer.joinwork.Permissions;
-import me.hsgamer.joinwork.config.MainConfig;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -29,7 +28,7 @@ public class SetSpawnCommand extends BukkitCommand {
     }
 
     getInstance().getMainConfig().getConfig()
-        .set(MainConfig.SPAWN_LOC.getPath(), ((Player) sender).getLocation());
+        .set("spawn-location", ((Player) sender).getLocation());
     getInstance().getMainConfig().saveConfig();
     CommonUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
 
