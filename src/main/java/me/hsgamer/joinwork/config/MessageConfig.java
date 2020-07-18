@@ -19,7 +19,9 @@ public class MessageConfig extends PluginConfig {
 
   public MessageConfig(JavaPlugin plugin) {
     super(plugin, "messages.yml");
+    getConfig().options().copyDefaults(true);
     setDefault();
+    saveConfig();
   }
 
   private void setDefault() {

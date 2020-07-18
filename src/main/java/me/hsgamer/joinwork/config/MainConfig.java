@@ -12,7 +12,9 @@ public class MainConfig extends PluginConfig {
 
   public MainConfig(JavaPlugin plugin) {
     super(plugin, "config.yml");
+    getConfig().options().copyDefaults(true);
     setDefault();
+    saveConfig();
   }
 
   private void setDefault() {
