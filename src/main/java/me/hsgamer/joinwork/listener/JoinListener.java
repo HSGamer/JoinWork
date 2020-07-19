@@ -35,10 +35,9 @@ public class JoinListener implements Listener {
       ConfigurationSection section = config.getConfigurationSection("join-items");
       for (String k : section.getKeys(false)) {
         int index = Integer.parseInt(k);
-        ItemStack itemStack = config.getItemStack(k);
+        ItemStack itemStack = section.getItemStack(k);
         inventory.setItem(index, itemStack);
       }
-      player.updateInventory();
     }
   }
 }
