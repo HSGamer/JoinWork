@@ -14,8 +14,8 @@ public final class JoinWork extends JavaPlugin {
 
   private static JoinWork instance;
   private final CommandManager commandManager = new CommandManager(this);
-  private final MainConfig mainConfig = new MainConfig(this);
   private final MessageConfig messageConfig = new MessageConfig(this);
+  private MainConfig mainConfig;
 
   public static JoinWork getInstance() {
     return instance;
@@ -28,6 +28,8 @@ public final class JoinWork extends JavaPlugin {
 
   @Override
   public void onEnable() {
+    mainConfig = new MainConfig(this);
+
     CommonUtils.setPrefix(MessageConfig.PREFIX::getValue);
     getServer().getPluginManager().registerEvents(new JoinListener(), this);
 
