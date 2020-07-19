@@ -35,6 +35,8 @@ public class SetJoinInventoryCommand extends BukkitCommand {
     MainConfig mainConfig = JoinWork.getInstance().getMainConfig();
     FileConfiguration config = mainConfig.getConfig();
 
+    config.set("join-items", null); // Reset
+
     for (int i = 0; i < inventory.getSize(); i++) {
       ItemStack itemStack = inventory.getItem(i);
       if (itemStack != null) {
