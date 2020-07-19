@@ -28,15 +28,16 @@ public class JoinListener implements Listener {
     }
 
     // SPAWN ITEM
-    Inventory inventory = player.getInventory();
-    inventory.clear();
     if (config.isConfigurationSection("join-items")) {
+      Inventory inventory = player.getInventory();
+      inventory.clear();
       ConfigurationSection section = config.getConfigurationSection("join-items");
       section.getKeys(false).forEach(k -> {
         int index = Integer.parseInt(k);
         ItemStack itemStack = config.getItemStack(k);
         inventory.setItem(index, itemStack);
       });
+      player.updateInventory();
     }
   }
 }
