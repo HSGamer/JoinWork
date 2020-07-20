@@ -2,7 +2,7 @@ package me.hsgamer.joinwork.command;
 
 import static me.hsgamer.joinwork.JoinWork.getInstance;
 
-import me.hsgamer.hscore.utils.CommonUtils;
+import me.hsgamer.hscore.bukkitutils.MessageUtils;
 import me.hsgamer.joinwork.Permissions;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.command.CommandSender;
@@ -18,19 +18,19 @@ public class SetSpawnCommand extends BukkitCommand {
   @Override
   public boolean execute(CommandSender sender, String commandLabel, String[] args) {
     if (!(sender instanceof Player)) {
-      CommonUtils.sendMessage(sender, MessageConfig.PLAYER_ONLY.getValue());
+      MessageUtils.sendMessage(sender, MessageConfig.PLAYER_ONLY.getValue());
       return false;
     }
 
     if (!sender.hasPermission(Permissions.SET_SPAWN)) {
-      CommonUtils.sendMessage(sender, MessageConfig.NO_PERMISSION.getValue());
+      MessageUtils.sendMessage(sender, MessageConfig.NO_PERMISSION.getValue());
       return false;
     }
 
     getInstance().getMainConfig().getConfig()
         .set("spawn-location", ((Player) sender).getLocation());
     getInstance().getMainConfig().saveConfig();
-    CommonUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
+    MessageUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
 
     return true;
   }

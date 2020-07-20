@@ -1,7 +1,7 @@
 package me.hsgamer.joinwork;
 
+import me.hsgamer.hscore.bukkitutils.MessageUtils;
 import me.hsgamer.hscore.command.CommandManager;
-import me.hsgamer.hscore.utils.CommonUtils;
 import me.hsgamer.joinwork.command.SetJoinInventoryCommand;
 import me.hsgamer.joinwork.command.SetSpawnCommand;
 import me.hsgamer.joinwork.config.MainConfig;
@@ -30,7 +30,7 @@ public final class JoinWork extends JavaPlugin {
   public void onEnable() {
     mainConfig = new MainConfig(this);
 
-    CommonUtils.setPrefix(MessageConfig.PREFIX::getValue);
+    MessageUtils.setPrefix(MessageConfig.PREFIX::getValue);
     getServer().getPluginManager().registerEvents(new JoinListener(), this);
 
     commandManager.register(new SetSpawnCommand());

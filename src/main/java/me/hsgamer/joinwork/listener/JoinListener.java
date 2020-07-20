@@ -1,6 +1,6 @@
 package me.hsgamer.joinwork.listener;
 
-import me.hsgamer.hscore.utils.CommonUtils;
+import me.hsgamer.hscore.bukkitutils.MessageUtils;
 import me.hsgamer.joinwork.JoinWork;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.Location;
@@ -25,7 +25,7 @@ public class JoinListener implements Listener {
     if (config.isSet("spawn-location")) {
       player.teleport((Location) config.get("spawn-location"));
     } else {
-      CommonUtils.sendMessage(player, MessageConfig.NO_LOC.getValue());
+      MessageUtils.sendMessage(player, MessageConfig.NO_LOC.getValue());
     }
 
     // SPAWN ITEM
