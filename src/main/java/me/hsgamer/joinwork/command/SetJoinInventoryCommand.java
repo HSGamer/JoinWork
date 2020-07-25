@@ -1,6 +1,6 @@
 package me.hsgamer.joinwork.command;
 
-import me.hsgamer.hscore.bukkitutils.MessageUtils;
+import me.hsgamer.hscore.bukkit.utils.MessageUtils;
 import me.hsgamer.joinwork.JoinWork;
 import me.hsgamer.joinwork.Permissions;
 import me.hsgamer.joinwork.config.MainConfig;

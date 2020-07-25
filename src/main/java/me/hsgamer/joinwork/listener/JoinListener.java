@@ -1,6 +1,6 @@
 package me.hsgamer.joinwork.listener;
 
-import me.hsgamer.hscore.bukkitutils.MessageUtils;
+import me.hsgamer.hscore.bukkit.utils.MessageUtils;
 import me.hsgamer.joinwork.JoinWork;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.Location;

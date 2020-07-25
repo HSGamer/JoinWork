@@ -1,7 +1,7 @@
 package me.hsgamer.joinwork;
 
-import me.hsgamer.hscore.bukkitutils.MessageUtils;
-import me.hsgamer.hscore.command.CommandManager;
+import me.hsgamer.hscore.bukkit.command.CommandManager;
+import me.hsgamer.hscore.bukkit.utils.MessageUtils;
 import me.hsgamer.joinwork.command.SetJoinInventoryCommand;
 import me.hsgamer.joinwork.command.SetSpawnCommand;
 import me.hsgamer.joinwork.config.MainConfig;
