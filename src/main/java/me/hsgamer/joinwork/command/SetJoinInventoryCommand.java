@@ -1,5 +1,7 @@
 package me.hsgamer.joinwork.command;
 
+import java.util.HashMap;
+import java.util.Map;
 import me.hsgamer.hscore.bukkit.utils.MessageUtils;
 import me.hsgamer.joinwork.JoinWork;
 import me.hsgamer.joinwork.Permissions;
@@ -7,7 +9,6 @@ import me.hsgamer.joinwork.config.MainConfig;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -32,19 +33,16 @@ public class SetJoinInventoryCommand extends BukkitCommand {
 
     Inventory inventory = ((Player) sender).getInventory();
 
-    MainConfig mainConfig = JoinWork.getInstance().getMainConfig();
-    FileConfiguration config = mainConfig.getConfig();
-
-    config.set("join-items", null); // Reset
-
+    Map<Integer, ItemStack> itemStackMap = new HashMap<>();
     for (int i = 0; i < inventory.getSize(); i++) {
       ItemStack itemStack = inventory.getItem(i);
       if (itemStack != null) {
-        config.set("join-items." + i, itemStack);
+        itemStackMap.put(i, itemStack);
       }
     }
+    MainConfig.JOIN_ITEMS.setValue(itemStackMap);
+    JoinWork.getInstance().getMainConfig().saveConfig();
 
-    mainConfig.saveConfig();
     MessageUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
 
     return true;

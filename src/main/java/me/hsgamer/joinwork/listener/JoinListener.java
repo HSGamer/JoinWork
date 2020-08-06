@@ -2,12 +2,9 @@ package me.hsgamer.joinwork.listener;
 
 import java.util.Map;
 import me.hsgamer.hscore.bukkit.utils.MessageUtils;
-import me.hsgamer.joinwork.JoinWork;
 import me.hsgamer.joinwork.config.MainConfig;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.Location;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -21,7 +18,6 @@ public class JoinListener implements Listener {
   @EventHandler(priority = EventPriority.LOWEST)
   public void onJoin(PlayerJoinEvent e) {
     Player player = e.getPlayer();
-    FileConfiguration config = JoinWork.getInstance().getMainConfig().getConfig();
 
     // SPAWN JOIN
     Map<String, Object> spawnLocData = MainConfig.SPAWN_LOCATION_MAP.getValue();
@@ -32,15 +28,11 @@ public class JoinListener implements Listener {
     }
 
     // SPAWN ITEM
-    if (config.isSet("join-items")) {
+    Map<Integer, ItemStack> itemStackMap = MainConfig.JOIN_ITEMS.getValue();
+    if (itemStackMap != null) {
       Inventory inventory = player.getInventory();
       inventory.clear();
-      ConfigurationSection section = config.getConfigurationSection("join-items");
-      for (String k : section.getKeys(false)) {
-        int index = Integer.parseInt(k);
-        ItemStack itemStack = section.getItemStack(k);
-        inventory.setItem(index, itemStack);
-      }
+      itemStackMap.forEach(inventory::setItem);
     }
   }
 }
