@@ -21,7 +21,7 @@ public class JoinListener implements Listener {
 
     // SPAWN JOIN
     Map<String, Object> spawnLocData = MainConfig.SPAWN_LOCATION_MAP.getValue();
-    if (spawnLocData != null && spawnLocData.isEmpty()) {
+    if (spawnLocData != null && !spawnLocData.isEmpty()) {
       player.teleport(Location.deserialize(spawnLocData));
     } else {
       MessageUtils.sendMessage(player, MessageConfig.NO_LOC.getValue());
