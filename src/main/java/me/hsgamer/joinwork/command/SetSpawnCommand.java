@@ -28,8 +28,7 @@ public class SetSpawnCommand extends BukkitCommand {
       return false;
     }
 
-    getInstance().getMainConfig().getConfig()
-        .set(MainConfig.SPAWN_LOCATION_MAP.getPath(), ((Player) sender).getLocation().serialize());
+    MainConfig.SPAWN_LOCATION_MAP.setValue(((Player) sender).getLocation().serialize());
     getInstance().getMainConfig().saveConfig();
     MessageUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
 

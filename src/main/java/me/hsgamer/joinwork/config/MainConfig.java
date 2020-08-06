@@ -4,28 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 import me.hsgamer.hscore.bukkit.config.ConfigPath;
 import me.hsgamer.hscore.bukkit.config.PluginConfig;
-import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MainConfig extends PluginConfig {
 
-  public static final ConfigPath<Location> SPAWN_LOCATION_MAP = new ConfigPath<>("spawn-location",
+  public static final ConfigPath<Map<String, Object>> SPAWN_LOCATION_MAP = new ConfigPath<>(
+      "spawn-location",
       null, o -> {
     if (o == null) {
       return null;
     }
 
-    Map<String, Object> values;
+    Map<String, Object> values = new HashMap<>();
     if (o instanceof ConfigurationSection) {
-      values = ((ConfigurationSection) o).getValues(false);
-    } else {
-      values = new HashMap<>();
+      values.putAll(((ConfigurationSection) o).getValues(false));
     }
-    if (values.isEmpty()) {
-      return null;
-    }
-    return Location.deserialize(values);
+    return values;
   });
 
   public MainConfig(JavaPlugin plugin) {
