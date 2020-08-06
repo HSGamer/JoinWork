@@ -2,6 +2,7 @@ package me.hsgamer.joinwork.listener;
 
 import me.hsgamer.hscore.bukkit.utils.MessageUtils;
 import me.hsgamer.joinwork.JoinWork;
+import me.hsgamer.joinwork.config.MainConfig;
 import me.hsgamer.joinwork.config.MessageConfig;
 import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
@@ -22,8 +23,9 @@ public class JoinListener implements Listener {
     FileConfiguration config = JoinWork.getInstance().getMainConfig().getConfig();
 
     // SPAWN JOIN
-    if (config.isSet("spawn-location")) {
-      player.teleport((Location) config.get("spawn-location"));
+    Location spawnLoc = MainConfig.SPAWN_LOCATION_MAP.getValue();
+    if (spawnLoc != null) {
+      player.teleport(spawnLoc);
     } else {
       MessageUtils.sendMessage(player, MessageConfig.NO_LOC.getValue());
     }
