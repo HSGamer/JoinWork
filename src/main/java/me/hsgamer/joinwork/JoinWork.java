@@ -12,44 +12,47 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class JoinWork extends JavaPlugin {
 
-  private static JoinWork instance;
-  private final CommandManager commandManager = new CommandManager(this);
-  private final MessageConfig messageConfig = new MessageConfig(this);
-  private final MainConfig mainConfig = new MainConfig(this);
+    private static JoinWork instance;
+    private final CommandManager commandManager = new CommandManager(this);
+    private final MessageConfig messageConfig = new MessageConfig(this);
+    private final MainConfig mainConfig = new MainConfig(this);
 
-  public static JoinWork getInstance() {
-    return instance;
-  }
+    public static JoinWork getInstance() {
+        return instance;
+    }
 
-  @Override
-  public void onLoad() {
-    instance = this;
-  }
+    @Override
+    public void onLoad() {
+        instance = this;
+    }
 
-  @Override
-  public void onEnable() {
-    MessageUtils.setPrefix(MessageConfig.PREFIX::getValue);
-    getServer().getPluginManager().registerEvents(new JoinListener(), this);
+    @Override
+    public void onEnable() {
+        MessageUtils.setPrefix(MessageConfig.PREFIX::getValue);
+        getServer().getPluginManager().registerEvents(new JoinListener(), this);
 
-    commandManager.register(new SetSpawnCommand());
-    commandManager.register(new SetJoinInventoryCommand());
-    commandManager.syncCommand();
-  }
+        commandManager.register(new SetSpawnCommand());
+        commandManager.register(new SetJoinInventoryCommand());
+        CommandManager.syncCommand();
 
-  @Override
-  public void onDisable() {
-    HandlerList.unregisterAll(this);
-  }
+        mainConfig.setDefault();
+        mainConfig.saveConfig();
+    }
 
-  public CommandManager getCommandManager() {
-    return commandManager;
-  }
+    @Override
+    public void onDisable() {
+        HandlerList.unregisterAll(this);
+    }
 
-  public MainConfig getMainConfig() {
-    return mainConfig;
-  }
+    public CommandManager getCommandManager() {
+        return commandManager;
+    }
 
-  public MessageConfig getMessageConfig() {
-    return messageConfig;
-  }
+    public MainConfig getMainConfig() {
+        return mainConfig;
+    }
+
+    public MessageConfig getMessageConfig() {
+        return messageConfig;
+    }
 }
