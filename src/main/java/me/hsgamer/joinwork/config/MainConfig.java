@@ -48,7 +48,7 @@ public class MainConfig extends PluginConfig {
         saveConfig();
     }
 
-    public void setDefault() {
+    private void setDefault() {
         SPAWN_LOCATION.setConfig(this);
         JOIN_ITEMS.setConfig(this);
     }
