@@ -11,7 +11,6 @@ public class MessageConfig extends PathableConfig {
     public static final StringConfigPath NO_PERMISSION = new StringConfigPath("no-permission", "&cYou don't have permission to do this");
     public static final StringConfigPath PLAYER_ONLY = new StringConfigPath("player-only", "&cYou should be a player to do this");
     public static final StringConfigPath SUCCESS = new StringConfigPath("success", "&aSuccess");
-    public static final StringConfigPath NO_LOC = new StringConfigPath("no-location-found", "&cNo location found");
 
     public MessageConfig(Plugin plugin) {
         super(new BukkitConfig(plugin, "messages.yml"));
