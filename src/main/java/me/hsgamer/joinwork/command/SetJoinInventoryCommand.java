@@ -42,7 +42,7 @@ public class SetJoinInventoryCommand extends BukkitCommand {
             }
         }
         MainConfig.JOIN_ITEMS.setValue(itemStackMap);
-        JoinWork.getInstance().getMainConfig().saveConfig();
+        JoinWork.getInstance().getMainConfig().save();
 
         MessageUtils.sendMessage(sender, MessageConfig.SUCCESS.getValue());
 
