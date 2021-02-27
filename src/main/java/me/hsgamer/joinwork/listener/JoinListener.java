@@ -18,7 +18,7 @@ public class JoinListener implements Listener {
         Player player = e.getPlayer();
 
         // SPAWN JOIN
-        player.teleport(MainConfig.SPAWN_LOCATION.getValue());
+        player.teleport(MainConfig.SPAWN_LOCATION.getValue().get());
 
         // SPAWN ITEM
         Map<Integer, ItemStack> itemStackMap = MainConfig.JOIN_ITEMS.getValue();
