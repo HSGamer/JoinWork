@@ -85,27 +85,27 @@
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-bukkit-utils</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>3.2</version>
         </dependency>
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-bukkit-baseplugin</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>3.2</version>
         </dependency>
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-bukkit-config</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>3.2</version>
         </dependency>
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-bukkit-config-extra</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>3.2</version>
         </dependency>
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-config-path</artifactId>
-            <version>3.0-SNAPSHOT</version>
+            <version>3.2</version>
         </dependency>
     </dependencies>
 </project>
