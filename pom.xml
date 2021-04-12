@@ -46,6 +46,10 @@
                                     <pattern>me.hsgamer.hscore</pattern>
                                     <shadedPattern>me.hsgamer.joinwork.core</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>io.github.portlek</pattern>
+                                    <shadedPattern>me.hsgamer.joinwork.portlek</shadedPattern>
+                                </relocation>
                             </relocations>
                         </configuration>
                     </execution>
@@ -106,6 +110,11 @@
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-config-path</artifactId>
             <version>3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.portlek</groupId>
+            <artifactId>BukkitItemBuilder</artifactId>
+            <version>4.0.1</version>
         </dependency>
     </dependencies>
 </project>

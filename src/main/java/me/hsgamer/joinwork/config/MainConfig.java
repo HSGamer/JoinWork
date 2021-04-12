@@ -1,5 +1,6 @@
 package me.hsgamer.joinwork.config;
 
+import io.github.portlek.bukkititembuilder.util.ItemStackUtil;
 import me.hsgamer.hscore.bukkit.config.BukkitConfig;
 import me.hsgamer.hscore.bukkit.config.object.Position;
 import me.hsgamer.hscore.bukkit.config.path.PositionConfigPath;
@@ -26,7 +27,7 @@ public class MainConfig extends PathableConfig {
             rawValue.forEach((s, o) -> {
                 if (o instanceof Map) {
                     // noinspection unchecked
-                    map.put(Integer.parseInt(s), ItemStack.deserialize((Map<String, Object>) o));
+                    ItemStackUtil.from((Map<String, Object>) o).ifPresent(item -> map.put(Integer.parseInt(s), item));
                 }
             });
             return map;
@@ -35,7 +36,7 @@ public class MainConfig extends PathableConfig {
         @Override
         public Map<String, Object> convertToRaw(Map<Integer, ItemStack> value) {
             Map<String, Object> map = new HashMap<>();
-            value.forEach((integer, itemStack) -> map.put(String.valueOf(integer), itemStack.serialize()));
+            value.forEach((integer, itemStack) -> map.put(String.valueOf(integer), ItemStackUtil.to(itemStack)));
             return map;
         }
     };
