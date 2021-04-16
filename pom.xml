@@ -109,7 +109,7 @@
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-config-path</artifactId>
-            <version>3.2</version>
+            <version>3.3</version>
         </dependency>
         <dependency>
             <groupId>io.github.portlek</groupId>
