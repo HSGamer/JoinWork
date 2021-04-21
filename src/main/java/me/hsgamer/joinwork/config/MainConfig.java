@@ -6,6 +6,7 @@ import me.hsgamer.hscore.bukkit.config.path.PositionConfigPath;
 import me.hsgamer.hscore.config.AdvancedConfigPath;
 import me.hsgamer.hscore.config.Config;
 import me.hsgamer.hscore.config.PathableConfig;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
@@ -24,9 +25,8 @@ public class MainConfig extends PathableConfig {
         public Map<Integer, ItemStack> convert(Map<String, Object> rawValue) {
             Map<Integer, ItemStack> map = new HashMap<>();
             rawValue.forEach((s, o) -> {
-                if (o instanceof Map) {
-                    // noinspection unchecked
-                    map.put(Integer.parseInt(s), ItemStack.deserialize((Map<String, Object>) o));
+                if (o instanceof ConfigurationSection) {
+                    map.put(Integer.parseInt(s), ItemStack.deserialize(((ConfigurationSection) o).getValues(false)));
                 }
             });
             return map;
