@@ -105,7 +105,7 @@
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-config-path</artifactId>
-            <version>3.2</version>
+            <version>3.5</version>
         </dependency>
     </dependencies>
 </project>
