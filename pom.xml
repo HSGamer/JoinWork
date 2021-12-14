@@ -90,7 +90,7 @@
         <dependency>
             <groupId>me.HSGamer</groupId>
             <artifactId>HSCore-bukkit-baseplugin</artifactId>
-            <version>3.2</version>
+            <version>3.19</version>
         </dependency>
         <dependency>
             <groupId>me.HSGamer</groupId>
